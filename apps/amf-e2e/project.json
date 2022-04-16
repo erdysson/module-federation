@@ -1,0 +1,28 @@
+{
+  "root": "apps/amf-e2e",
+  "sourceRoot": "apps/amf-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/amf-e2e/cypress.json",
+        "devServerTarget": "amf:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "amf:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/amf-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["amf"]
+}
